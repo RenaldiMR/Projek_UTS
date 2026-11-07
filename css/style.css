@@ -1,9 +1,5 @@
-/* =========================================================
-   LOGIN DAN PENDAFTARAN
-   Fungsi: Mengatur halaman login/pendaftaran, panel pengenalan, form, tombol, dan tampilan mobile.
-   ========================================================= */
+/* 1. LOGIN DAN PENDAFTARAN */
 
-/* LOGIN & PENDAFTARAN */
 .auth-page {
     min-height: 100vh;
     background: #F1E7D3;
@@ -240,10 +236,7 @@
     }
 }
 
-/* =========================================================
-   GLOBAL STYLING
-   Fungsi: Pengaturan dasar seluruh halaman: warna utama, ukuran elemen, font, dan tampilan body.
-   ========================================================= */
+    /* 2. GLOBAL STYLING */
 
 :root {
     --navy: #5C3A26;
@@ -266,9 +259,9 @@ body {
     font-family: Arial, Helvetica, sans-serif
 }
 
+
 /* =========================================================
-   DASHBOARD / HERO DAN TOMBOL
-   Fungsi: Mengatur banner dashboard (hero), judul dan ilustrasi hero, serta tombol utama.
+   3. DASHBOARD / HERO DAN TOMBOL
    ========================================================= */
 
 .hero {
@@ -315,7 +308,6 @@ body {
     border-color: #3B2418
 }
 
-/* Penyesuaian Bootstrap classes agar bersih dari warna biru */
 .text-primary, 
 .page-link, 
 .search-result-item:hover {
@@ -333,16 +325,16 @@ body {
     border-color: #dfd2bd !important;
 }
 
-/* =========================================================
-   KOMPONEN KARTU DAN PANEL
-   Fungsi: Mengatur panel/kartu, statistik, ikon statistik, dan judul panel.
-   ========================================================= */
+    /* 4. KOMPONEN KARTU DAN PANEL */
 
 .panel {
     background: #fff;
     border: 0;
     border-radius: 14px;
-    box-shadow: 0 2px 12px #5c3a260a
+    box-shadow: 0 2px 12px #5c3a260a;
+    padding: 18px;
+    margin-bottom: 16px;
+    min-width: 0
 }
 
 .stat-card {
@@ -396,12 +388,6 @@ body {
     color: #586944
 }
 
-.panel {
-    padding: 18px;
-    margin-bottom: 16px;
-    min-width: 0
-}
-
 .panel-title {
     display: flex;
     align-items: center;
@@ -421,10 +407,7 @@ body {
     margin-right: 6px
 }
 
-/* =========================================================
-   TOPBAR DAN HEADER HALAMAN
-   Fungsi: Mengatur area konten utama, bar atas, kolom pencarian, profil pengguna, serta judul halaman.
-   ========================================================= */
+    /* 5. TOPBAR DAN HEADER HALAMAN */
 
 .main-content {
     margin-left: 240px;
@@ -500,10 +483,7 @@ body {
     margin: 0
 }
 
-/* =========================================================
-   GLOBAL SEARCH STYLING
-   Fungsi: Mengatur kotak hasil pencarian, item hasil, dan pesan ketika hasil tidak ditemukan.
-   ========================================================= */
+    /* 6. GLOBAL SEARCH STYLING */
 
 .search-box {
     position: relative;
@@ -542,10 +522,7 @@ body {
     font-size: 13px;
 }
 
-/* =========================================================
-   MAP AND CHART STYLING
-   Fungsi: Mengatur tinggi, lebar, dan bentuk sudut peta Leaflet serta area grafik.
-   ========================================================= */
+    /* 7. MAP AND CHART STYLING */
 
 #usageChart {
     height: 260px;
@@ -574,10 +551,7 @@ body {
     display: none !important;
 }
 
-/* =========================================================
-   RESPONSIVE STYLING
-   Fungsi: Mengatur perubahan tampilan saat dibuka di tablet dan ponsel.
-   ========================================================= */
+    /* 8. RESPONSIVE STYLING */
 
 @media(max-width:991px) {
     .sidebar {
@@ -657,10 +631,7 @@ body {
     }
 }
 
-/* =========================================================
-   SIDEBAR / MENU NAVIGASI
-   Fungsi: Mengatur panel menu di sebelah kiri, logo aplikasi, dan efek menu aktif/hover.
-   ========================================================= */
+    /* 9. SIDEBAR / MENU NAVIGASI */
 
 .sidebar {
     position: fixed;
@@ -732,4 +703,182 @@ body {
     right: 13px;
     border-top: 1px solid #ffffff30;
     padding-top: 12px
+}
+
+
+    /* 10. TABEL DATATABLES: GAYA BERSAMA */
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-length,
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-length select,
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-search input {
+    font-size: 13px;
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-length select {
+    width: auto;
+    min-width: 72px;
+    padding: 6px 30px 6px 12px;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-search input {
+    width: 220px;
+    max-width: 100%;
+    padding: 7px 12px;
+    margin-left: 0;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-length select:focus,
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-search input:focus {
+    outline: 0;
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--navy) 18%, transparent);
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) thead th {
+    font-size: 14px;
+    outline: 0 !important;
+}
+
+/* Info bawah tabel (font lebih kecil) */
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-info {
+    font-size: 11px !important;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+/* Tombol pagination kembali rapi dan proporsional seperti semula */
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-paging .pagination {
+    gap: 5px;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-paging .page-link {
+    min-width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    padding: 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 9px !important;
+    background: #fff;
+    color: var(--navy) !important;
+    border: 1px solid var(--line) !important;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-paging .page-item:not(.active):not(.disabled) .page-link:hover {
+    background: color-mix(in srgb, var(--navy) 10%, white);
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-paging .page-item.active .page-link {
+    background: var(--navy) !important;
+    border-color: var(--navy) !important;
+    color: #fff !important;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-paging .page-item.disabled .page-link {
+    opacity: .45;
+}
+
+    /* 11. KHUSUS RUTE */
+
+#routeTable th:first-child,
+#routeTable td:first-child {
+    width: 56px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+#routeTable thead th:first-child .dt-column-order {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    #routeTable_wrapper .dt-search input {
+        width: 150px;
+    }
+
+    #routeTable_wrapper .dt-paging .page-link {
+        min-width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    :is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-info {
+        font-size: 10px !important;
+    }
+}
+
+        /*12. KHUSUS DASHBOARD */
+
+:is(#dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper) .dt-search input {
+    width: 130px;
+    padding: 6px 10px;
+}
+
+:is(#dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper) .dt-paging .pagination {
+    gap: 4px;
+}
+
+:is(#dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper) .dt-paging .page-link {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 9px;
+    font-size: 12px;
+    border-radius: 8px !important;
+}
+
+
+/* #########################################################
+   13. KHUSUS NEBENG
+   ######################################################### */
+
+#rideTable_wrapper .dt-search input {
+    width: 260px;
+}
+
+#rideTable thead th {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+@media (max-width: 767px) {
+    #rideTable_wrapper .dt-search input {
+        width: 150px;
+    }
+}
+
+    /* 14. KHUSUS PENGGUNA */
+
+#userTable_wrapper .dt-search input {
+    width: 260px;
+}
+
+#userTable thead th {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+@media (max-width: 767px) {
+    #userTable_wrapper .dt-search input {
+        width: 150px;
+    }
 }
