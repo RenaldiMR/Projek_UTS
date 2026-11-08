@@ -1,11 +1,251 @@
+/* 1. LOGIN DAN PENDAFTARAN */
+
+.auth-page {
+    min-height: 100vh;
+    background: #F1E7D3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px
+}
+
+.auth-wrapper {
+    width: min(1080px, 100%);
+    min-height: 650px;
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 18px 55px #5c3a261c
+}
+
+.auth-intro {
+    background: linear-gradient(145deg, #5C3A26, #3B2418);
+    color: #fff;
+    padding: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.auth-brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 17px;
+    line-height: 1.25
+}
+
+.auth-brand-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #ffffff20;
+    display: grid;
+    place-items: center;
+    font-size: 25px
+}
+
+.auth-intro-content {
+    max-width: 410px;
+    padding: 35px 0
+}
+
+.auth-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    color: #A3B18A;
+    font-weight: 700
+}
+
+.auth-intro-content h1 {
+    font-size: 36px;
+    line-height: 1.18;
+    font-weight: 800;
+    margin: 15px 0
+}
+
+.auth-intro-content p {
+    color: #f4ede1;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 28px
+}
+
+.auth-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 13px
+}
+
+.auth-feature i {
+    font-size: 18px;
+    color: #A3B18A
+}
+
+.auth-intro-footer {
+    font-size: 11px;
+    color: #d2c5b0
+}
+
+.auth-form-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 42px
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 390px
+}
+
+.auth-card h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 7px
+}
+
+.auth-card>div>p {
+    font-size: 13px;
+    color: var(--muted)
+}
+
+.auth-mobile-icon {
+    display: none
+}
+
+.auth-switch {
+    background: #F1E7D3;
+    border-radius: 10px;
+    padding: 5px
+}
+
+.auth-switch .nav-link {
+    width: 50%;
+    border-radius: 8px;
+    color: #786252;
+    font-size: 13px;
+    font-weight: 700
+}
+
+.auth-switch .nav-link.active {
+    background: #5C3A26;
+    color: #fff
+}
+
+.auth-card .form-control,
+.auth-card .input-group-text {
+    font-size: 13px;
+    padding: 11px 12px;
+    border-color: #dfd2bd
+}
+
+.auth-card .input-group-text {
+    background: #F1E7D3;
+    color: #786252
+}
+
+.auth-submit {
+    padding: 11px;
+    font-weight: 700;
+    border-radius: 9px
+}
+
+.auth-switch-note {
+    text-align: center;
+    font-size: 12px;
+    color: #786252;
+    margin-top: 20px
+}
+
+.link-button {
+    border: 0;
+    background: none;
+    color: #5C3A26;
+    font-weight: 700;
+    padding: 0
+}
+
+.auth-disclaimer {
+    margin-top: 26px;
+    padding: 11px 12px;
+    background: #F1E7D3;
+    border-radius: 8px;
+    color: #786252;
+    font-size: 10px;
+    line-height: 1.5
+}
+
+@media(max-width:767px) {
+    .auth-page {
+        padding: 12px;
+        align-items: flex-start
+    }
+
+    .auth-wrapper {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        border-radius: 16px
+    }
+
+    .auth-intro {
+        padding: 20px 22px
+    }
+
+    .auth-intro-content {
+        padding: 24px 0 8px
+    }
+
+    .auth-intro-content h1 {
+        font-size: 25px;
+        margin: 9px 0
+    }
+
+    .auth-intro-content p {
+        font-size: 12px;
+        margin-bottom: 12px
+    }
+
+    .auth-feature {
+        display: none
+    }
+
+    .auth-intro-footer {
+        font-size: 9px
+    }
+
+    .auth-form-side {
+        padding: 28px 22px
+    }
+
+    .auth-mobile-icon {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 12px;
+        background: #A3B18A;
+        color: #5C3A26;
+        border-radius: 14px;
+        font-size: 23px
+    }
+}
+
+    /* 2. GLOBAL STYLING */
+
 :root {
-    --navy: #173b76;
-    --navy2: #0d2d61;
-    --blue: #2874dc;
-    --bg: #f4f7fc;
-    --text: #172b4d;
-    --muted: #64748b;
-    --line: #e7edf5
+    --navy: #5C3A26;
+    --navy2: #3B2418;
+    --blue: #5C3A26;
+    --bg: #F1E7D3;
+    --text: #3B2418;
+    --muted: #826e5d;
+    --line: #dfd2bd
 }
 
 * {
@@ -19,77 +259,155 @@ body {
     font-family: Arial, Helvetica, sans-serif
 }
 
-.sidebar {
-    position: fixed;
-    inset: 0 auto 0 0;
-    width: 240px;
-    background: linear-gradient(180deg, var(--navy), var(--navy2));
-    color: #fff;
-    padding: 22px 13px;
-    z-index: 1030
-}
 
-.brand {
+/* =========================================================
+   3. DASHBOARD / HERO DAN TOMBOL
+   ========================================================= */
+
+.hero {
+    background: linear-gradient(115deg, #A3B18A, #cad4b8);
+    border-radius: 16px;
+    padding: 26px 30px;
+    min-height: 190px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 5px 10px 25px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.25
+    justify-content: space-between;
+    overflow: hidden;
+    margin-bottom: 16px
 }
 
-.brand-icon {
-    width: 42px;
-    height: 42px;
+.hero h2 {
+    font-size: 30px;
+    line-height: 1.1;
+    font-weight: 800;
+    color: #3B2418;
+    margin: 0 0 12px
+}
+
+.hero p {
+    max-width: 540px;
+    color: #4a3628;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 17px
+}
+
+.hero-art {
+    font-size: 100px;
+    color: #5C3A26;
+    padding: 0 28px
+}
+
+.btn-primary {
+    background: var(--navy);
+    border-color: var(--navy)
+}
+
+.btn-primary:hover {
+    background: #3B2418;
+    border-color: #3B2418
+}
+
+.text-primary, 
+.page-link, 
+.search-result-item:hover {
+    color: #5C3A26 !important;
+}
+
+.bg-primary, 
+.page-item.active .page-link {
+    background-color: #5C3A26 !important;
+    border-color: #5C3A26 !important;
+    color: #fff !important;
+}
+
+.page-link {
+    border-color: #dfd2bd !important;
+}
+
+    /* 4. KOMPONEN KARTU DAN PANEL */
+
+.panel {
+    background: #fff;
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #5c3a260a;
+    padding: 18px;
+    margin-bottom: 16px;
+    min-width: 0
+}
+
+.stat-card {
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 100%
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+    color: #fff;
     display: grid;
     place-items: center;
-    background: #ffffff1c;
-    border-radius: 12px;
-    font-size: 23px
+    font-size: 21px;
+    flex-shrink: 0
 }
 
-.menu-label {
-    font-size: 10px;
-    letter-spacing: 1.2px;
-    color: #aebfdb;
-    padding: 12px 14px 7px
+.stat-icon.blue {
+    background: #5C3A26
 }
 
-.sidebar .nav-link {
+.stat-icon.green {
+    background: #A3B18A
+}
+
+.stat-icon.purple {
+    background: #786252
+}
+
+.stat-icon.orange {
+    background: #b58452
+}
+
+.stat-card small {
+    color: var(--muted);
+    font-size: 12px
+}
+
+.stat-card h3 {
+    font-size: 24px;
+    margin: 3px 0;
+    font-weight: 750
+}
+
+.trend {
+    font-size: 11px;
+    color: #586944
+}
+
+.panel-title {
     display: flex;
     align-items: center;
-    gap: 13px;
-    color: #dce7f8;
-    padding: 11px 13px;
-    border-radius: 10px;
-    margin: 3px 0;
-    font-size: 14px
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px
 }
 
-.sidebar .nav-link i {
-    font-size: 17px;
-    width: 21px
+.panel-title h5 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0
 }
 
-.sidebar .nav-link:hover,
-.sidebar .nav-link.active {
-    background: #ffffff20;
-    color: #fff
+.panel-title h5 i {
+    color: var(--navy);
+    margin-right: 6px
 }
 
-.sidebar .nav-link.active {
-    box-shadow: inset 3px 0 #80b5ff
-}
-
-.sidebar-bottom {
-    position: absolute;
-    bottom: 18px;
-    left: 13px;
-    right: 13px;
-    border-top: 1px solid #ffffff30;
-    padding-top: 12px
-}
+    /* 5. TOPBAR DAN HEADER HALAMAN */
 
 .main-content {
     margin-left: 240px;
@@ -112,7 +430,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: #f1f5fa;
+    background: #F1E7D3;
     border-radius: 10px;
     padding: 11px 14px;
     width: min(470px, 55%)
@@ -138,8 +456,8 @@ body {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: #dce8f9;
-    color: var(--navy);
+    background: #A3B18A;
+    color: #fff;
     display: grid;
     place-items: center;
     font-size: 17px
@@ -165,133 +483,46 @@ body {
     margin: 0
 }
 
-.hero {
-    background: linear-gradient(115deg, #e4f2ff, #bcdcff);
-    border-radius: 16px;
-    padding: 26px 30px;
-    min-height: 190px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    /* 6. GLOBAL SEARCH STYLING */
+
+.search-box {
+    position: relative;
+}
+
+.search-results {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(92, 58, 38, 0.12);
+    z-index: 9999;
     overflow: hidden;
-    margin-bottom: 16px
 }
 
-.hero h2 {
-    font-size: 30px;
-    line-height: 1.1;
-    font-weight: 800;
-    color: #173565;
-    margin: 0 0 12px
+.search-result-item {
+    display: block;
+    padding: 12px 15px;
+    color: #3B2418;
+    text-decoration: none;
+    font-size: 13px;
+    border-bottom: 1px solid #eee;
 }
 
-.hero p {
-    max-width: 540px;
-    color: #365477;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 17px
+.search-result-item:hover {
+    background: #F1E7D3;
+    color: #5C3A26;
 }
 
-.hero-art {
-    font-size: 100px;
-    color: #2675bd;
-    padding: 0 28px
+.search-empty {
+    padding: 12px 15px;
+    color: #826e5d;
+    font-size: 13px;
 }
 
-.btn-primary {
-    background: var(--navy);
-    border-color: var(--navy)
-}
-
-.btn-primary:hover {
-    background: #0d2d61;
-    border-color: #0d2d61
-}
-
-.stat-card,
-.panel {
-    background: #fff;
-    border: 0;
-    border-radius: 14px;
-    box-shadow: 0 2px 12px #18365f0a
-}
-
-.stat-card {
-    padding: 18px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    height: 100%
-}
-
-.stat-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 13px;
-    color: #fff;
-    display: grid;
-    place-items: center;
-    font-size: 21px;
-    flex-shrink: 0
-}
-
-.stat-icon.blue {
-    background: #2976e8
-}
-
-.stat-icon.green {
-    background: #29b765
-}
-
-.stat-icon.purple {
-    background: #6558df
-}
-
-.stat-icon.orange {
-    background: #f4a523
-}
-
-.stat-card small {
-    color: var(--muted);
-    font-size: 12px
-}
-
-.stat-card h3 {
-    font-size: 24px;
-    margin: 3px 0;
-    font-weight: 750
-}
-
-.trend {
-    font-size: 11px;
-    color: #20a457
-}
-
-.panel {
-    padding: 18px;
-    margin-bottom: 16px;
-    min-width: 0
-}
-
-.panel-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 14px
-}
-
-.panel-title h5 {
-    font-size: 15px;
-    font-weight: 700;
-    margin: 0
-}
-
-.panel-title h5 i {
-    color: var(--navy);
-    margin-right: 6px
-}
+    /* 7. MAP AND CHART STYLING */
 
 #usageChart {
     height: 260px;
@@ -312,58 +543,15 @@ body {
     z-index: 1
 }
 
-.table {
-    font-size: 13px !important;
-    vertical-align: middle !important
+.leaflet-routing-container {
+    display: none !important;
 }
 
-.table thead th {
-    white-space: nowrap;
-    background: #f2f6fb;
-    color: #40516b;
-    font-weight: 650
+.leaflet-control-attribution {
+    display: none !important;
 }
 
-.table td {
-    white-space: nowrap
-}
-
-.badge-soft {
-    background: #e8f1ff;
-    color: #1d5caf;
-    padding: 6px 9px;
-    border-radius: 20px;
-    font-weight: 600
-}
-
-.form-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: #40516b
-}
-
-.form-control,
-.form-select {
-    font-size: 13px;
-    padding: 10px 12px;
-    border-color: #dce4ef
-}
-
-.notice {
-    border-left: 4px solid #2874dc;
-    background: #eef5ff;
-    border-radius: 8px;
-    padding: 13px 15px;
-    color: #355174;
-    font-size: 13px
-}
-
-.footer-note {
-    color: #8290a5;
-    font-size: 11px;
-    text-align: center;
-    padding: 10px
-}
+    /* 8. RESPONSIVE STYLING */
 
 @media(max-width:991px) {
     .sidebar {
@@ -443,277 +631,254 @@ body {
     }
 }
 
+    /* 9. SIDEBAR / MENU NAVIGASI */
 
-/* LOGIN & PENDAFTARAN */
-.auth-page {
-    min-height: 100vh;
-    background: #f1f5fb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px
-}
-
-.auth-wrapper {
-    width: min(1080px, 100%);
-    min-height: 650px;
-    background: #fff;
-    border-radius: 22px;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    box-shadow: 0 18px 55px #173b761c
-}
-
-.auth-intro {
-    background: linear-gradient(145deg, #173b76, #0d2d61);
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 240px;
+    background: linear-gradient(180deg, var(--navy), var(--navy2));
     color: #fff;
-    padding: 42px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between
+    padding: 22px 13px;
+    z-index: 1030
 }
 
-.auth-brand {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    font-size: 17px;
-    line-height: 1.25
-}
-
-.auth-brand-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background: #ffffff20;
-    display: grid;
-    place-items: center;
-    font-size: 25px
-}
-
-.auth-intro-content {
-    max-width: 410px;
-    padding: 35px 0
-}
-
-.auth-eyebrow {
-    font-size: 10px;
-    letter-spacing: 1.6px;
-    color: #bcd6ff;
-    font-weight: 700
-}
-
-.auth-intro-content h1 {
-    font-size: 36px;
-    line-height: 1.18;
-    font-weight: 800;
-    margin: 15px 0
-}
-
-.auth-intro-content p {
-    color: #d6e4fa;
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 28px
-}
-
-.auth-feature {
+.brand {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 15px 0;
-    color: #eef5ff;
-    font-size: 13px
+    padding: 5px 10px 25px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25
 }
 
-.auth-feature i {
-    font-size: 18px;
-    color: #9ec8ff
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    background: #ffffff1c;
+    border-radius: 12px;
+    font-size: 23px
 }
 
-.auth-intro-footer {
-    font-size: 11px;
-    color: #b7c9e4
+.menu-label {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    color: #d2c5b0;
+    padding: 12px 14px 7px
 }
 
-.auth-form-side {
+.sidebar .nav-link {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 42px
-}
-
-.auth-card {
-    width: 100%;
-    max-width: 390px
-}
-
-.auth-card h2 {
-    font-size: 26px;
-    font-weight: 800;
-    margin-bottom: 7px
-}
-
-.auth-card>div>p {
-    font-size: 13px;
-    color: var(--muted)
-}
-
-.auth-mobile-icon {
-    display: none
-}
-
-.auth-switch {
-    background: #f0f4fa;
+    gap: 13px;
+    color: #ecdcc9;
+    padding: 11px 13px;
     border-radius: 10px;
-    padding: 5px
+    margin: 3px 0;
+    font-size: 14px
 }
 
-.auth-switch .nav-link {
-    width: 50%;
-    border-radius: 8px;
-    color: #60718a;
-    font-size: 13px;
-    font-weight: 700
+.sidebar .nav-link i {
+    font-size: 17px;
+    width: 21px
 }
 
-.auth-switch .nav-link.active {
-    background: #173b76;
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background: #ffffff20;
     color: #fff
 }
 
-.auth-card .form-control,
-.auth-card .input-group-text {
-    font-size: 13px;
-    padding: 11px 12px;
-    border-color: #dce4ef
+.sidebar .nav-link.active {
+    box-shadow: inset 3px 0 #A3B18A
 }
 
-.auth-card .input-group-text {
-    background: #f7f9fc;
-    color: #74849a
-}
-
-.auth-submit {
-    padding: 11px;
-    font-weight: 700;
-    border-radius: 9px
-}
-
-.auth-switch-note {
-    text-align: center;
-    font-size: 12px;
-    color: #718096;
-    margin-top: 20px
-}
-
-.link-button {
-    border: 0;
-    background: none;
-    color: #2467c4;
-    font-weight: 700;
-    padding: 0
-}
-
-.auth-disclaimer {
-    margin-top: 26px;
-    padding: 11px 12px;
-    background: #f3f7fc;
-    border-radius: 8px;
-    color: #718096;
-    font-size: 10px;
-    line-height: 1.5
-}
-
-@media(max-width:767px) {
-    .auth-page {
-        padding: 12px;
-        align-items: flex-start
-    }
-
-    .auth-wrapper {
-        grid-template-columns: 1fr;
-        min-height: 0;
-        border-radius: 16px
-    }
-
-    .auth-intro {
-        padding: 20px 22px
-    }
-
-    .auth-intro-content {
-        padding: 24px 0 8px
-    }
-
-    .auth-intro-content h1 {
-        font-size: 25px;
-        margin: 9px 0
-    }
-
-    .auth-intro-content p {
-        font-size: 12px;
-        margin-bottom: 12px
-    }
-
-    .auth-feature {
-        display: none
-    }
-
-    .auth-intro-footer {
-        font-size: 9px
-    }
-
-    .auth-form-side {
-        padding: 28px 22px
-    }
-
-    .auth-mobile-icon {
-        display: grid;
-        place-items: center;
-        width: 48px;
-        height: 48px;
-        margin: 0 auto 12px;
-        background: #e8f1ff;
-        color: #173b76;
-        border-radius: 14px;
-        font-size: 23px
-    }
-}
-
-.search-box {
-    position: relative;
-}
-
-.search-results {
-    display: none;
+.sidebar-bottom {
     position: absolute;
-    top: 110%;
-    left: 0;
-    width: 100%;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
-    z-index: 9999;
-    overflow: hidden;
+    bottom: 18px;
+    left: 13px;
+    right: 13px;
+    border-top: 1px solid #ffffff30;
+    padding-top: 12px
 }
 
-.search-result-item {
-    display: block;
-    padding: 12px 15px;
-    color: #263b5e;
-    text-decoration: none;
+
+    /* 10. TABEL DATATABLES: GAYA BERSAMA */
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-length,
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 13px;
-    border-bottom: 1px solid #eee;
+    color: var(--muted);
 }
 
-.search-result-item:hover {
-    background: #f0f5ff;
-    color: #0d6efd;
-}
-
-.search-empty {
-    padding: 12px 15px;
-    color: #888;
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-length select,
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-search input {
     font-size: 13px;
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-length select {
+    width: auto;
+    min-width: 72px;
+    padding: 6px 30px 6px 12px;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-search input {
+    width: 220px;
+    max-width: 100%;
+    padding: 7px 12px;
+    margin-left: 0;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-length select:focus,
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-search input:focus {
+    outline: 0;
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--navy) 18%, transparent);
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) thead th {
+    font-size: 14px;
+    outline: 0 !important;
+}
+
+/* Info bawah tabel (font lebih kecil) */
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-info {
+    font-size: 11px !important;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+/* Tombol pagination kembali rapi dan proporsional seperti semula */
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-paging .pagination {
+    gap: 5px;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-paging .page-link {
+    min-width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    padding: 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 9px !important;
+    background: #fff;
+    color: var(--navy) !important;
+    border: 1px solid var(--line) !important;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-paging .page-item:not(.active):not(.disabled) .page-link:hover {
+    background: color-mix(in srgb, var(--navy) 10%, white);
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-paging .page-item.active .page-link {
+    background: var(--navy) !important;
+    border-color: var(--navy) !important;
+    color: #fff !important;
+}
+
+:is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-paging .page-item.disabled .page-link {
+    opacity: .45;
+}
+
+    /* 11. KHUSUS RUTE */
+
+#routeTable th:first-child,
+#routeTable td:first-child {
+    width: 56px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+#routeTable thead th:first-child .dt-column-order {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    #routeTable_wrapper .dt-search input {
+        width: 150px;
+    }
+
+    #routeTable_wrapper .dt-paging .page-link {
+        min-width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    :is(#routeTable_wrapper, #dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper, #rideTable_wrapper, #userTable_wrapper) .dt-info {
+        font-size: 10px !important;
+    }
+}
+
+        /*12. KHUSUS DASHBOARD */
+
+:is(#dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper) .dt-search input {
+    width: 130px;
+    padding: 6px 10px;
+}
+
+:is(#dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper) .dt-paging .pagination {
+    gap: 4px;
+}
+
+:is(#dashboardRouteTable_wrapper, #dashboardNebengTable_wrapper) .dt-paging .page-link {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 9px;
+    font-size: 12px;
+    border-radius: 8px !important;
+}
+
+
+/* #########################################################
+   13. KHUSUS NEBENG
+   ######################################################### */
+
+#rideTable_wrapper .dt-search input {
+    width: 260px;
+}
+
+#rideTable thead th {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+@media (max-width: 767px) {
+    #rideTable_wrapper .dt-search input {
+        width: 150px;
+    }
+}
+
+    /* 14. KHUSUS PENGGUNA */
+
+#userTable_wrapper .dt-search input {
+    width: 260px;
+}
+
+#userTable thead th {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+@media (max-width: 767px) {
+    #userTable_wrapper .dt-search input {
+        width: 150px;
+    }
 }
