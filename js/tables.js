@@ -5,19 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const table = document.querySelector(selector);
     if (table) {
       new DataTable(table, {
-        pageLength: selector === "#dashboardRouteTable" || selector === "#dashboardNebengTable" ? 3 : 3,
+        pageLength: 3,
         lengthMenu: [ [3, 5, 10], [3, 5, 10] ],
-        columnDefs: [
-          { 
-            targets: 0, 
-            orderable: false,
-            // Membuat nomor urut otomatis berdasar posisi baris (bukan teks statis dari HTML)
-            render: function (data, type, row, meta) {
-              return meta.row + 1; // Menghasilkan nomor 1, 2, 3, dst secara otomatis
-            }
-          }
-        ],
-
+        // Blok columnDefs dihapus agar kolom 1 tidak ditimpa angka
         language: {
           search: "Cari:",
           lengthMenu: "Tampilkan _MENU_ data",
