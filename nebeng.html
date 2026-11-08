@@ -2,414 +2,342 @@
 <html lang="id">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nebeng Kampus | Transportasi &amp; Nebeng Kampus</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Stylesheets: vendor -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
 
-    <title>Nebeng Kampus</title>
+  <!-- Stylesheets: app -->
+  <link href="css/style.css" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+  <!-- Pop up hasil pencarian: selalu di tengah layar -->
+  <style>
+    #rideResultModal .modal-dialog {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center;
+      margin: 1rem auto !important;
+      min-height: calc(100% - 2rem) !important;
+      height: auto !important;
+    }
 
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <link rel="stylesheet" href="style.css">
-
+    #rideResultModal .modal-content {
+      width: 100%;
+      max-height: calc(100vh - 2rem);
+    }
+  </style>
 </head>
-
 
 <body>
 
-<div class="d-flex">
+  <!-- ============ Sidebar ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon"><i class="bi bi-bus-front-fill"></i></div>
+      <div>Transportasi &amp;<br>Nebeng Kampus</div>
+    </div>
 
+    <div class="menu-label">MENU UTAMA</div>
 
-    <!-- SIDEBAR -->
+    <nav aria-label="Menu utama">
+      <a class="nav-link" href="index.html">
+        <i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span>
+      </a>
+      <a class="nav-link" href="rute.html">
+        <i class="bi bi-signpost-2-fill"></i><span>Rute Transportasi</span>
+      </a>
+      <a class="nav-link active" href="nebeng.html" aria-current="page">
+        <i class="bi bi-car-front-fill"></i><span>Nebeng Kampus</span>
+      </a>
+      <a class="nav-link" href="peta.html">
+        <i class="bi bi-map-fill"></i><span>Peta Rute</span>
+      </a>
+      <a class="nav-link" href="pengguna.html">
+        <i class="bi bi-people-fill"></i><span>Data Pengguna</span>
+      </a>
+    </nav>
+  </aside>
 
-    <aside class="sidebar">
+  <!-- ============ Main content ============ -->
+  <main class="main-content">
 
-        <div class="brand">
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="searchbox">
+        <i class="bi bi-search"></i>
+        <input type="search" id="globalSearch" placeholder="Cari informasi..." aria-label="Cari informasi">
+      </div>
 
-            <i class="bi bi-bus-front-fill"></i>
+      <div class="user-area">
+        <div class="avatar"><i class="bi bi-person-fill"></i></div>
+        <span id="currentUserName">Mahasiswa</span>
+        <button class="btn btn-sm btn-outline-danger ms-2" type="button" data-logout>
+          <i class="bi bi-box-arrow-right me-1"></i>Keluar
+        </button>
+      </div>
+    </header>
 
-            <span>
-                Transportasi<br>& Nebeng
-            </span>
+    <!-- Page heading -->
+    <div class="page-heading">
+      <div>
+        <h1>Nebeng Kampus</h1>
+        <p>Cari tumpangan atau bagikan kursi kosong untuk perjalanan ke kampus.</p>
+      </div>
+    </div>
 
-        </div>
+    <!-- Forms -->
+    <div class="row g-3">
 
-        <hr>
+      <!-- Find a ride -->
+      <div class="col-lg-6">
+        <section class="panel h-100">
+          <div class="panel-title">
+            <h5><i class="bi bi-search"></i>Form Cari Nebeng</h5>
+          </div>
 
-        <a href="index.html" class="menu">
-            <i class="bi bi-house-door-fill"></i>
-            Dashboard
-        </a>
-
-        <a href="rute.html" class="menu">
-            <i class="bi bi-signpost-2-fill"></i>
-            Rute Transportasi
-        </a>
-
-        <a href="nebeng.html" class="menu active">
-            <i class="bi bi-car-front-fill"></i>
-            Nebeng Kampus
-        </a>
-
-        <a href="peta.html" class="menu">
-            <i class="bi bi-map-fill"></i>
-            Peta Rute
-        </a>
-
-        <a href="pengguna.html" class="menu">
-            <i class="bi bi-people-fill"></i>
-            Data Pengguna
-        </a>
-
-    </aside>
-
-
-    <!-- CONTENT -->
-
-    <main class="main-content">
-
-        <nav class="topbar">
-
-            <div>
-
-                <h5>Nebeng Kampus</h5>
-
-                <small class="text-muted">
-                    Cari atau tawarkan tumpangan kepada mahasiswa
-                </small>
-
+          <form id="searchRideForm">
+            <div class="mb-3">
+              <label class="form-label" for="searchAsal">Lokasi penjemputan</label>
+              <input class="form-control" id="searchAsal" name="asal"required>
             </div>
 
-        </nav>
-
-
-        <!-- SEARCH -->
-
-        <div class="card-custom mb-4">
-
-            <h5>
-                <i class="bi bi-search"></i>
-                Cari Nebeng
-            </h5>
-
-            <div class="row g-3 mt-2">
-
-                <div class="col-md-4">
-
-                    <label class="form-label">
-                        Lokasi Awal
-                    </label>
-
-                    <select id="asalCari" class="form-select">
-
-                        <option value="">
-                            Pilih lokasi
-                        </option>
-
-                        <option>Cicaheum</option>
-                        <option>Buah Batu</option>
-                        <option>Dago</option>
-                        <option>Antapani</option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="col-md-4">
-
-                    <label class="form-label">
-                        Tujuan
-                    </label>
-
-                    <select class="form-select">
-
-                        <option>Kampus</option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="col-md-4 d-flex align-items-end">
-
-                    <button class="btn btn-primary w-100"
-                            onclick="cariNebeng()">
-
-                        <i class="bi bi-search"></i>
-                        Cari Nebeng
-
-                    </button>
-
-                </div>
-
+            <div class="mb-3">
+              <label class="form-label" for="searchTujuan">Tujuan</label>
+              <input class="form-control" id="searchTujuan" name="tujuan"required>
             </div>
 
-        </div>
-
-
-        <!-- FORM -->
-
-        <div class="card-custom mb-4">
-
-            <h5>
-                <i class="bi bi-plus-circle"></i>
-                Tawarkan Nebeng
-            </h5>
-
-            <form id="nebengForm">
-
-                <div class="row g-3 mt-1">
-
-                    <div class="col-md-6">
-
-                        <label class="form-label">
-                            Nama
-                        </label>
-
-                        <input type="text"
-                               id="nama"
-                               class="form-control"
-                               placeholder="Masukkan nama">
-
-                    </div>
-
-
-                    <div class="col-md-6">
-
-                        <label class="form-label">
-                            Asal
-                        </label>
-
-                        <select id="asal" class="form-select">
-
-                            <option value="">
-                                Pilih lokasi
-                            </option>
-
-                            <option>Cicaheum</option>
-                            <option>Buah Batu</option>
-                            <option>Dago</option>
-                            <option>Antapani</option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Jam Berangkat
-                        </label>
-
-                        <input type="time"
-                               id="jam"
-                               class="form-control">
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Kapasitas
-                        </label>
-
-                        <input type="number"
-                               id="kapasitas"
-                               class="form-control"
-                               min="1"
-                               max="5">
-
-                    </div>
-
-
-                    <div class="col-md-4 d-flex align-items-end">
-
-                        <button type="submit"
-                                class="btn btn-success w-100">
-
-                            Tawarkan Nebeng
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </form>
-
-        </div>
-
-
-        <!-- LIST -->
-
-        <div class="card-custom">
-
-            <h5 class="mb-3">
-                Pengumuman Nebeng Terbaru
-            </h5>
-
-            <div id="hasilNebeng">
-
-                <div class="nebeng-item">
-
-                    <div>
-
-                        <strong>Agung Pratama</strong>
-
-                        <p class="mb-1">
-                            Cicaheum → Kampus
-                        </p>
-
-                        <small>
-                            Berangkat 06.30
-                        </small>
-
-                    </div>
-
-                    <span class="badge bg-success">
-                        2 Kursi
-                    </span>
-
-                </div>
-
-
-                <div class="nebeng-item">
-
-                    <div>
-
-                        <strong>Siti Nurhaliza</strong>
-
-                        <p class="mb-1">
-                            Buah Batu → Kampus
-                        </p>
-
-                        <small>
-                            Berangkat 07.00
-                        </small>
-
-                    </div>
-
-                    <span class="badge bg-success">
-                        3 Kursi
-                    </span>
-
-                </div>
-
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="searchTanggal">Tanggal</label>
+                <input type="date" class="form-control" id="searchTanggal" name="tanggal" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="searchWaktu">Waktu</label>
+                <input type="time" class="form-control" id="searchWaktu" name="waktu" required>
+              </div>
             </div>
 
+            <button class="btn btn-primary" type="submit">
+              <i class="bi bi-search me-1"></i>Cari Tumpangan
+            </button>
+          </form>
+
+          <div id="searchRideResult" class="mt-3" aria-live="polite"></div>
+        </section>
+      </div>
+
+      <!-- Offer a ride -->
+      <div class="col-lg-6">
+        <section class="panel h-100">
+          <div class="panel-title">
+            <h5><i class="bi bi-plus-circle"></i>Form Tawarkan Nebeng</h5>
+          </div>
+
+          <form id="offerRideForm">
+            <div class="mb-3">
+              <label class="form-label" for="offerNama">Nama pengemudi</label>
+              <input class="form-control" id="offerNama" name="nama"required>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="offerAsal">Lokasi asal</label>
+                <input class="form-control" id="offerAsal" name="asal"required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="offerTujuan">Tujuan</label>
+                <input class="form-control" id="offerTujuan" name="tujuan"required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="offerWaktu">Waktu berangkat</label>
+                <input type="time" class="form-control" id="offerWaktu" name="waktu" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="offerKursi">Kursi tersedia</label>
+                <input type="number" class="form-control" id="offerKursi" name="kursi" min="1" max="6" required>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              <i class="bi bi-send me-1"></i>Publikasikan Tawaran
+            </button>
+          </form>
+
+          <div id="offerRideResult" class="mt-3" aria-live="polite"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Ride offers table -->
+    <section class="panel mt-3">
+      <div class="panel-title">
+        <h5><i class="bi bi-car-front"></i>Daftar Tawaran Nebeng</h5>
+      </div>
+
+      <div class="table-responsive">
+        <table id="rideTable" class="table table-striped w-100">
+          <thead>
+            <tr>
+              <th>Pengemudi</th>
+              <th>Titik Awal</th>
+              <th>Tujuan</th>
+              <th>Waktu</th>
+              <th>Kursi</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Asep</td>
+              <td>Cicaheum</td>
+              <td>Kampus</td>
+              <td>05.30-19.00</td>
+              <td>10</td>
+              <td><span class="badge bg-success">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td>Ujang</td>
+              <td>Buah Batu</td>
+              <td>Kampus</td>
+              <td>06.00-18.00</td>
+              <td>1</td>
+              <td><span class="badge bg-success">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td>Yayat</td>
+              <td>Leuwipanjang</td>
+              <td>Kampus</td>
+              <td>05.30-20.00</td>
+              <td>10</td>
+              <td><span class="badge bg-secondary">Penuh</span></td>
+            </tr>
+            <tr>
+              <td>Jajang</td>
+              <td>Dago</td>
+              <td>Kampus</td>
+              <td>06.00-18.00</td>
+              <td>50</td>
+              <td><span class="badge bg-success">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td>Zidane</td>
+              <td>Antapani</td>
+              <td>Kampus</td>
+              <td>24 Jam</td>
+              <td>1</td>
+              <td><span class="badge bg-success">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td>Lingga</td>
+              <td>Cibiru</td>
+              <td>Kampus</td>
+              <td>05.00-18.00</td>
+              <td>10</td>
+              <td><span class="badge bg-success">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td>Devan</td>
+              <td>Cicadas</td>
+              <td>Kampus</td>
+              <td>12.00-16.00</td>
+              <td>1</td>
+              <td><span class="badge bg-success">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td>Lasrun</td>
+              <td>Sarijadi</td>
+              <td>Kampus</td>
+              <td>08.00-20.00</td>
+              <td>1</td>
+              <td><span class="badge bg-success">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td>Jannah</td>
+              <td>Ujung Berung</td>
+              <td>Kampus</td>
+              <td>05.30-18.30</td>
+              <td>10</td>
+              <td><span class="badge bg-success">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td>Daus</td>
+              <td>Kiaracondong</td>
+              <td>Kampus</td>
+              <td>24 Jam</td>
+              <td>1</td>
+              <td><span class="badge bg-success">Tersedia</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      Transportasi &amp; Nebeng Kampus · Proyek UTS Kelompok 6.
+    </footer>
+  </main>
+
+  <!-- ============ Modal: hasil pencarian nebeng ============ -->
+  <div class="modal fade" id="rideResultModal" tabindex="-1" aria-labelledby="rideResultModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rideResultModalLabel">
+            <i class="bi bi-car-front me-2"></i>Daftar Tawaran Nebeng
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
         </div>
-
-    </main>
-
-</div>
-
-
-<script>
-
-const form = document.getElementById("nebengForm");
-
-form.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const nama =
-        document.getElementById("nama").value;
-
-    const asal =
-        document.getElementById("asal").value;
-
-    const jam =
-        document.getElementById("jam").value;
-
-    const kapasitas =
-        document.getElementById("kapasitas").value;
-
-
-    if (
-        nama === "" ||
-        asal === "" ||
-        jam === "" ||
-        kapasitas === ""
-    ) {
-
-        alert("Semua data harus diisi.");
-
-        return;
-
-    }
-
-
-    const dataBaru = document.createElement("div");
-
-    dataBaru.className = "nebeng-item";
-
-    dataBaru.innerHTML = `
-
-        <div>
-
-            <strong>${nama}</strong>
-
-            <p class="mb-1">
-                ${asal} → Kampus
-            </p>
-
-            <small>
-                Berangkat ${jam}
-            </small>
-
+        <div class="modal-body">
+          <p id="rideResultSummary" class="text-muted small mb-3"></p>
+          <div class="table-responsive">
+            <table class="table table-striped align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Pengemudi</th>
+                  <th>Titik Awal</th>
+                  <th>Tujuan</th>
+                  <th>Waktu</th>
+                  <th>Kursi</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="rideResultBody"></tbody>
+            </table>
+          </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" id="rideShowAll">Tampilkan semua</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <span class="badge bg-success">
-            ${kapasitas} Kursi
-        </span>
+  <!-- ============ Scripts ============ -->
 
-    `;
+  <!-- Vendor (jQuery must load before Bootstrap/DataTables plugins) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-
-    document
-        .getElementById("hasilNebeng")
-        .appendChild(dataBaru);
-
-
-    alert("Pengumuman nebeng berhasil ditambahkan.");
-
-    form.reset();
-
-});
-
-
-function cariNebeng() {
-
-    const asal =
-        document.getElementById("asalCari").value;
-
-
-    if (asal === "") {
-
-        alert("Silakan pilih lokasi asal.");
-
-        return;
-
-    }
-
-
-    alert(
-        "Mencari nebeng dari " +
-        asal +
-        " menuju kampus."
-    );
-
-}
-
-</script>
-
-
+  <!-- App -->
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/tables.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/search.js"></script>
 </body>
+
 </html>

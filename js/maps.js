@@ -19,21 +19,43 @@ document.addEventListener("DOMContentLoaded", function () {
     const element = document.getElementById(elementId);
     if (!element) return;
     const map = L.map(elementId).setView(campus, zoom);
+    
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    // Memasang marker lokasi agar bisa dipencet dan muncul namanya
     locations.forEach(function(place) {
       L.marker(place.coords).addTo(map).bindPopup("<strong>" + place.name + "</strong>");
     });
+
+    // MENGUBAH GARIS PUTUS-PUTUS MENJADI RUTE JALAN RAYA (LEAFLET ROUTING MACHINE)
     locations.slice(1).forEach(function(place) {
-      L.polyline([place.coords,campus], {color:"#2874dc",weight:3,opacity:0.75,dashArray:"6 7"}).addTo(map);
+      L.Routing.control({
+        waypoints: [
+          L.latLng(place.coords[0], place.coords[1]),
+          L.latLng(campus[0], campus[1])
+        ],
+        routeWhileDragging: false,
+        addWaypoints: false,
+        draggableWaypoints: false,
+        fitSelectedRoutes: false,
+        show: false, // Menyembunyikan kotak panel instruksi di kanan
+        lineOptions: {
+          styles: [{ color: '#2874dc', weight: 4, opacity: 0.8 }] // Garis utuh warna biru selayaknya Maps
+        },
+        createMarker: function() { return null; } // Mencegah marker ganda dari routing
+      }).addTo(map);
     });
+
     if (elementId === "fullMap") {
       const group = L.featureGroup(locations.map(p => L.marker(p.coords)));
       map.fitBounds(group.getBounds().pad(0.2));
     }
+    
     setTimeout(() => map.invalidateSize(), 200);
   }
+
   addMap("dashboardMap", 12);
   addMap("fullMap", 12);
 });
