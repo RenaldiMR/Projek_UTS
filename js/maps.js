@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+﻿document.addEventListener("DOMContentLoaded", function () {
   if (typeof L === "undefined") return;
   const campus = [-6.926575719409608, 107.626200665495]; // koordinat contoh area kampus di Bandung
   const locations = [
